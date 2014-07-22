@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<map proto="1.3.3">
+<name>Orbis</name>
+<version>1.0.0</version>
+<objective>Capture the wool of all the opposing teams located behind their spawn and place it on your victory monument.</objective>
+<authors>
+    <author contribution="Map Building and XML">High_Tower98</author>
+    <author contribution="Map Building and XML">J0E2311</author>
+    <author contribution="Map Building">Tomsy21</author>
+</authors>
+
+<teams>
+    <team color="Red" max="12" max-overfill="15">Red Team</team>
+    <team color="Blue" max="12" max-overfill="15">Blue Team</team>
+    <team color="Green" max="12" max-overfill="15">Green Team</team>
+    <team color="Yellow" max="12" max-overfill="15">Yellow Team</team>
+</teams>
+
+<kits>
+    <kit name="spawn" force="true" potion-particles="false">
+        <item slot="0">stone sword</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="2" enchantment="durability:1">iron pickaxe</item>
+        <item slot="3" enchantment="durability:1">iron shovel</item>
+        <item slot="4" amount="32">cooked fish</item>
+        <item slot="5" amount="1">golden apple</item>
+        <item slot="6" amount="64">oak logs</item>
+        <item slot="7" amount="64">glass</item>
+        <item slot="29" amount="1">arrow</item>
+    </kit>
+    <kit name="Red" parents="spawn">
+        <chestplate color="993333" enchantment="protection projectile:1">leather chestplate</chestplate>
+        <boots color="993333">leather boots</boots>
+    </kit>
+    <kit name="Blue" parents="spawn">
+        <chestplate color="334CB2" enchantment="protection projectile:1">leather chestplate</chestplate>
+        <boots color="334CB2">leather boots</boots>
+    </kit>
+    <kit name="Green" parents="spawn">
+        <chestplate color="667F33" enchantment="protection projectile:1">leather chestplate</chestplate>
+        <boots color="667F33">leather boots</boots>
+    </kit>
+    <kit name="Yellow" parents="spawn">
+        <chestplate color="E5E533" enchantment="protection projectile:1">leather chestplate</chestplate>
+        <boots color="E5E533">leather boots</boots>
+    </kit>
+</kits>
+
+<spawns>
+    <spawn team="Red" kit="Red">
+        <point yaw="90">
+            <cylinder base="-55,31,12" height="0" radius="2"/>
+        </point>
+    </spawn>
+    <spawn team="Blue" kit="Blue">
+        <point yaw="180">
+            <cylinder base="-132,31,89" height="0" radius="2"/>
+        </point>
+    </spawn>
+    <spawn team="Yellow" kit="Yellow">
+        <point yaw="-90">
+            <cylinder base="-209,31,12" height="0" radius="2"/>
+        </point>
+    </spawn>
+    <spawn team="Green" kit="Green">
+        <point yaw="0">
+            <cylinder base="-132,31,-64" height="0" radius="2"/>
+        </point>
+    </spawn>
+</spawns>
+
+<filters>
+    <filter name="only-red" parents="deny-players deny-world">
+        <allow><team>Red</team></allow>
+    </filter>
+    <filter name="only-blue" parents="deny-players deny-world">
+        <allow><team>Blue</team></allow>
+    </filter>
+    <filter name="only-yellow" parents="deny-players deny-world">
+        <allow><team>Yellow</team></allow>
+    </filter>
+    <filter name="only-green" parents="deny-players deny-world">
+        <allow><team>Green</team></allow>
+    </filter>
+    <filter name="only-red-usage">
+        <not>
+            <all>
+                <any>
+                    <block>chest</block>
+                    <block>workbench</block>
+                </any>
+                <team>Blue</team>
+                <team>Yellow</team>
+                <team>Green</team>
+            </all>
+        </not>
+    </filter>
+    <filter name="only-blue-usage">
+        <not>
+            <all>
+                <any>
+                    <block>chest</block>
+                    <block>workbench</block>
+                </any>
+                <team>Red</team>
+                <team>Yellow</team>
+                <team>Green</team>
+            </all>
+        </not>
+    </filter>
+    <filter name="only-yellow-usage">
+        <not>
+            <all>
+                <any>
+                    <block>chest</block>
+                    <block>workbench</block>
+                </any>
+                <team>Red</team>
+                <team>Blue</team>
+                <team>Green</team>
+            </all>
+        </not>
+    </filter>
+    <filter name="only-green-usage">
+        <not>
+            <all>
+                <any>
+                    <block>chest</block>
+                    <block>workbench</block>
+                </any>
+                <team>Red</team>
+                <team>Yellow</team>
+                <team>Blue</team>
+            </all>
+        </not>
+    </filter>    
+</filters>
+
+<regions>
+    <union name="red-wool-room">
+        <circle name="blue-island" center="-133,125" radius="15"/>
+        <circle name="yellow-island" center="-246,12" radius="15"/>
+        <circle name="green-island" center="-133,-101" radius="15"/>
+    </union>
+    <union name="blue-wool-room">
+        <circle name="red-island" center="-20,12" radius="15"/>
+        <circle name="yellow-island" center="-246,12" radius="15"/>
+        <circle name="green-island" center="-133,-101" radius="15"/>
+    </union>
+    <union name="yellow-wool-room">
+        <circle name="red-island" center="-20,12" radius="15"/>
+        <circle name="blue-island" center="-133,125" radius="15"/>
+        <circle name="green-island" center="-133,-101" radius="15"/>
+    </union>
+    <union name="green-wool-room">
+        <circle name="red-island" center="-20,12" radius="15"/>
+        <circle name="blue-island" center="-133,125" radius="15"/>
+        <circle name="yellow-island" center="-246,12" radius="15"/>
+    </union>
+    
+    <complement name="outside-red">
+        <circle center="-20,12" radius="15"/>
+        <region name="red-island"/>
+    </complement>
+    <complement name="outside-blue">
+        <circle center="-133,125" radius="15"/>
+        <region name="blue-island"/>
+    </complement>
+    <complement name="outside-yellow">
+        <circle center="-246,12" radius="15"/>
+        <region name="yellow-island"/>
+    </complement>
+    <complement name="outside-green">
+        <circle center="-133,-101" radius="15"/>
+        <region name="green-island"/>
+    </complement>
+    
+    <apply block="only-red" use="only-red-usage">
+        <region name="red-wool-room"/>
+    </apply>
+    <apply enter="only-red" message="You may not enter your own wool room.">
+        <region name="red-wool-room"/>
+    </apply>
+    <apply block="only-blue" use="only-blue-usage">
+        <region name="blue-wool-room"/>
+    </apply>
+    <apply enter="only-blue" message="You may not enter your own wool room.">
+        <region name="blue-wool-room"/>
+    </apply>
+    <apply block="only-yellow" use="only-yellow-usage">
+        <region name="yellow-wool-room"/>
+    </apply>
+    <apply enter="only-yellow" message="You may not enter your own wool room.">
+        <region name="yellow-wool-room"/>
+    </apply>
+    <apply block="only-green" use="only-green-usage">
+        <region name="green-wool-room"/>
+    </apply>
+    <apply enter="only-green" message="You may not enter your own wool room.">
+        <region name="green-wool-room"/>
+    </apply>
+    
+    <apply block="deny-all">
+        <region name="outside-red"/>
+        <region name="outside-blue"/>
+        <region name="outside-yellow"/>
+        <region name="outside-green"/>
+    </apply>
+</regions>
+
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron shovel</tool>
+    <tool>bow</tool>
+    <tool>arrow</tool>
+</toolrepair>
+
+<itemremove>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+</itemremove>
+
+<maxbuildheight>58</maxbuildheight>
+
+<wools>
+    <wool team="Red" color="lime">
+        <block location="-53,32,11"/>
+    </wool>
+    <wool team="Red" color="yellow">
+        <block location="-53,32,12"/>
+    </wool>
+    <wool team="Red" color="blue">
+        <block location="-53,32,11"/>
+    </wool>
+    <wool team="Blue" color="red">
+        <block location="-132,32,92"/>
+    </wool>
+    <wool team="Blue" color="lime">
+        <block location="-133,32,92"/>
+    </wool>
+    <wool team="Blue" color="yellow">
+        <block location="-134,32,92"/>
+    </wool>
+    <wool team="Yellow" color="blue">
+        <block location="-213,32,13"/>
+    </wool>
+    <wool team="Yellow" color="red">
+        <block location="-213,32,12"/>
+    </wool>
+    <wool team="Yellow" color="lime">
+        <block location="-213,32,11"/>
+    </wool>
+    <wool team="Green" color="yellow">
+        <block location="-134,32,-68"/>
+    </wool>
+    <wool team="Green" color="blue">
+        <block location="-133,32,-68"/>
+    </wool>
+    <wool team="Green" color="red">
+        <block location="-132,32,-68"/>
+    </wool>
+</wools>
+
+<gamerules>
+    <timelock>on</timelock>
+</gamerules>
+
+<playable>
+    <region name="Play-area"/>
+    <cylinder base="-133,32,12" height="-oo" radius="126"/>
+</playable>
+
+</map>
