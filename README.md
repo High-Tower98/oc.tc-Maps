@@ -1,4 +1,4 @@
 oc.tc-Maps
 ==========
 
-Files for Maps I make
+Files for Maps my friends and I make.
