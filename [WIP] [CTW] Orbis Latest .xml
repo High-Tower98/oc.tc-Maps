@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.3.3">
 <name>Orbis</name>
-<version>1.0.2</version>
+<version>1.0.3</version>
 <objective>Capture the wool of all the opposing teams located behind their spawn and place it on your victory monument.</objective>
 <authors>
     <author contribution="Map Building and XML">High_Tower98</author>
@@ -24,7 +24,7 @@
         <item slot="3" enchantment="durability:1">iron shovel</item>
         <item slot="4" amount="32">cooked fish</item>
         <item slot="5" amount="1">golden apple</item>
-        <item slot="6" amount="64" damage="0">log</item>
+        <item slot="6" amount="64" damage="1">quartz block</item>
         <item slot="7" amount="64">glass</item>
         <item slot="29" amount="32">arrow</item>
     </kit>
@@ -277,6 +277,7 @@
 <itemremove>
     <item>leather chestplate</item>
     <item>leather boots</item>
+    <item>leather leggings</item>
 </itemremove>
 
 <maxbuildheight>50</maxbuildheight>
