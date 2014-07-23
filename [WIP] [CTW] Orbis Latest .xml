@@ -271,7 +271,6 @@
     <tool>iron pickaxe</tool>
     <tool>iron shovel</tool>
     <tool>bow</tool>
-    <tool>arrow</tool>
 </toolrepair>
 
 <itemremove>
