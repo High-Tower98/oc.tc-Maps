@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.3.3">
 <name>Orbis</name>
-<version>1.0.3</version>
+<version>1.0.2</version>
 <objective>Capture the wool of all the opposing teams located behind their spawn and place it on your victory monument.</objective>
 <authors>
     <author contribution="Map Building and XML">High_Tower98</author>
