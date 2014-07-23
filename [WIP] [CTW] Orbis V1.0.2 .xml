@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.3.3">
 <name>Orbis</name>
-<version>1.0.2</version>
+<version>1.0.3</version>
 <objective>Capture the wool of all the opposing teams located behind their spawn and place it on your victory monument.</objective>
 <authors>
     <author contribution="Map Building and XML">High_Tower98</author>
@@ -145,7 +145,12 @@
                 <team>Blue</team>
             </all>
         </not>
-    </filter>    
+    </filter> 
+    <filter name="no-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>   
 </filters>
 
 <regions>
@@ -175,7 +180,6 @@
         <circle name="yellow-spawn" center="-85,0" radius="9"/>
         <circle name="green-spawn" center="-9,-76" radius="9"/>
     </union>
-    
     <complement name="outside-red">
         <circle center="-20,12" radius="15"/>
         <region name="red-island"/>
@@ -249,12 +253,16 @@
     </apply>
     </apply>
     </apply>
-
     <apply block="deny-all">
         <region name="outside-red"/>
         <region name="outside-blue"/>
         <region name="outside-yellow"/>
         <region name="outside-green"/>
+    </apply>
+    <apply block="no-void" message="You may not bridge outside the map!">
+        <negative>
+            <cylinder base="-9,32,0" height="-oo" radius="71"/>
+        </negative>
     </apply>
 </regions>
 
@@ -323,10 +331,5 @@
 <gamerules>
     <timelock>on</timelock>
 </gamerules>
-
-<playable>
-    <region name="Play-area"/>
-    <cylinder base="-19,43,0" height="-oo" radius="125"/>
-</playable>
 
 </map>
