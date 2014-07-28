@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.3.3">
 <name>Orbis</name>
-<version>1.0.3</version>
+<version>1.1.0</version>
 <objective>Capture the wool of all the opposing teams located behind their spawn and place it on your victory monument.</objective>
 <authors>
     <author contribution="Map Building and XML">High_Tower98</author>
@@ -10,10 +10,10 @@
 </authors>
 
 <teams>
-    <team color="Red" max="12" max-overfill="15">Red Team</team>
-    <team color="Blue" max="12" max-overfill="15">Blue Team</team>
-    <team color="Green" max="12" max-overfill="15">Green Team</team>
-    <team color="Yellow" max="12" max-overfill="15">Yellow Team</team>
+    <team color="Red" max="8" max-overfill="10">Red Team</team>
+    <team color="Blue" max="8" max-overfill="10">Blue Team</team>
+    <team color="Green" max="8" max-overfill="10">Green Team</team>
+    <team color="Yellow" max="8" max-overfill="10">Yellow Team</team>
 </teams>
 
 <kits>
@@ -76,7 +76,6 @@
             <cylinder base="-9,58,-1" height="0" radius="2"/>
         </point>
     </spawn>
-
 </spawns>
 
 <filters>
@@ -155,24 +154,24 @@
 
 <regions>
     <union name="red-wool-room">
-        <circle name="blue-island" center="-9,113" radius="15"/>
-        <circle name="yellow-island" center="-122,0" radius="15"/>
-        <circle name="green-island" center="-9,-113" radius="15"/>
+        <circle name="blue-island" center="-9,108" radius="10"/>
+        <circle name="yellow-island" center="-117,0" radius="10"/>
+        <circle name="green-island" center="-9,-108" radius="10"/>
     </union>
     <union name="blue-wool-room">
-        <circle name="red-island" center="104,0" radius="15"/>
-        <circle name="yellow-island" center="-122,0" radius="15"/>
-        <circle name="green-island" center="-9,-113" radius="15"/>
+        <circle name="red-island" center="99,0" radius="10"/>
+        <circle name="yellow-island" center="-117,0" radius="10"/>
+        <circle name="green-island" center="-9,-108" radius="10"/>
     </union>
     <union name="yellow-wool-room">
-        <circle name="red-island" center="104,0" radius="15"/>
-        <circle name="blue-island" center="-9,113" radius="15"/>
-        <circle name="green-island" center="-9,-113" radius="15"/>
+        <circle name="red-island" center="99,0" radius="10"/>
+        <circle name="blue-island" center="-9,108" radius="10"/>
+        <circle name="green-island" center="-9,-108" radius="10"/>
     </union>
     <union name="green-wool-room">
-        <circle name="red-island" center="104,0" radius="15"/>
-        <circle name="blue-island" center="-9,113" radius="15"/>
-        <circle name="yellow-island" center="-122,0" radius="15"/>
+        <circle name="red-island" center="99,0" radius="10"/>
+        <circle name="blue-island" center="-9,108" radius="10"/>
+        <circle name="yellow-island" center="-117,0" radius="10"/>
     </union>
     <union name="spawn-rooms">
         <circle name="red-spawn" center="67,0" radius="9"/>
@@ -181,19 +180,19 @@
         <circle name="green-spawn" center="-9,-76" radius="9"/>
     </union>
     <complement name="outside-red">
-        <circle center="-20,12" radius="15"/>
+        <circle center="99,0" radius="10"/>
         <region name="red-island"/>
     </complement>
     <complement name="outside-blue">
-        <circle center="-133,125" radius="15"/>
+        <circle center="-9,108" radius="10"/>
         <region name="blue-island"/>
     </complement>
     <complement name="outside-yellow">
-        <circle center="-246,12" radius="15"/>
+        <circle center="-117,0" radius="10"/>
         <region name="yellow-island"/>
     </complement>
     <complement name="outside-green">
-        <circle center="-133,-101" radius="15"/>
+        <circle center="-9,-108" radius="10"/>
         <region name="green-island"/>
     </complement>
     
